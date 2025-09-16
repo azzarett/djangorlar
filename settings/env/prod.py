@@ -1,4 +1,4 @@
-from settings.settings import BASE_DIR
+from settings.base import BASE_DIR
 
 DEBUG = False
 
