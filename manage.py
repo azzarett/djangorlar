@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 from settings.conf import ENV_ID, ENV_POSSIBLE_OPTIONS
