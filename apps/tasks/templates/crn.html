@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Counter</h2>
+    <div class="d-flex gap-3 align-items-center">
+      <div class="fs-1" id="counter">0</div>
+      <div>
+        <button id="inc-btn" class="btn btn-primary mb-2">Increase</button>
+        <button id="reset-btn" class="btn btn-danger mb-2">Reset</button>
+      </div>
+    </div>
+    <a href="{% url 'home' %}">Home</a>
+  </body>
+  <script>
+    const counterEl = document.getElementById("counter");
+    const incBtn = document.getElementById("inc-btn");
+    const resetBtn = document.getElementById("reset-btn");
+
+    let counter = parseInt(localStorage.getItem("counter") || "0", 10);
+    function render() {
+      counterEl.textContent = counter;
+    }
+
+    incBtn.addEventListener("click", () => {
+      counter += 1;
+      localStorage.setItem("counter", counter);
+      render();
+    });
+
+    resetBtn.addEventListener("click", () => {
+      counter = 0;
+      localStorage.setItem("counter", counter);
+      render();
+    });
+
+    render();
+  </script>
+</html>

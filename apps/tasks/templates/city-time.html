@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>City Time</h2>
+    <p>Выберите город, чтобы видеть текущее время:</p>
+
+    <div class="mb-3">
+      <select id="city-select" class="form-select w-50">
+        <option value="Asia/Almaty">Almaty</option>
+        <option value="America/Edmonton">Calgary</option>
+        <option value="Europe/Moscow">Moscow</option>
+        <option value="UTC">UTC</option>
+      </select>
+    </div>
+
+    <div class="fs-4">Текущее время: <span id="time">—</span></div>
+    <a href="{% url 'home' %}">Home</a>
+  </body>
+  <script>
+    const select = document.getElementById("city-select");
+    const timeEl = document.getElementById("time");
+
+    function updateTime() {
+      const tz = select.value;
+      const now = new Date();
+      try {
+        const formatter = new Intl.DateTimeFormat([], {
+          timeZone: tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+        timeEl.textContent = formatter.format(now);
+      } catch (e) {
+        timeEl.textContent = "Ошибка: неподдерживаемая временная зона";
+      }
+    }
+
+    select.addEventListener("change", updateTime);
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+</html>
