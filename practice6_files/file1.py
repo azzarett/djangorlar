@@ -98,4 +98,8 @@ def demo() -> None:
 
 if __name__ == "__main__":
 	demo()
+ 
 
+"""
+This is some changed text for task 1
+"""
