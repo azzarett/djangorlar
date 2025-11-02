@@ -117,4 +117,8 @@ def demo_misc() -> None:
 
 if __name__ == "__main__":
 	demo_misc()
+ 
+"""
+This is some changed text for task 1 for file3.py
+"""
 
