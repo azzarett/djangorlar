@@ -18,6 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_URLCONF = 'settings.urls'
 WSGI_APPLICATION = 'settings.wsgi.application'
 ASGI_APPLICATION = "settings.asgi.application"
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "apps.tasks.apps.TasksConfig",
+    'accounts',
 ]
 
 MIDDLEWARE = [
